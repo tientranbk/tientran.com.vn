@@ -1098,9 +1098,29 @@ window.addEventListener('scroll', function() {
 
 // ── NAVIGATION ──
 function showPage(id) {
-  document.querySelectorAll('.page').forEach(function(p) { p.classList.remove('active'); });
+  // 1. Hide all pages instantly
+  document.querySelectorAll('.page').forEach(function(p) {
+    p.classList.remove('active');
+    p.style.display = 'none';
+  });
+
+  // 2. Show target page
   var t = document.getElementById('page-' + id);
-  if (t) { t.classList.add('active'); window.scrollTo(0,0); loadImages(); }
+  if (!t) return;
+  t.style.display = 'block';
+  t.classList.add('active');
+
+  // 3. Force scroll to top — multiple methods for cross-browser reliability
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+
+  // 4. Load images after paint
+  requestAnimationFrame(function() {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    loadImages();
+  });
 }
 
 function showArticle(id) {
@@ -1126,6 +1146,14 @@ function handleSubmit(btn) {
 }
 
 // ── INIT ──
+// Set all pages hidden except home via inline style (matches JS approach)
+document.querySelectorAll('.page').forEach(function(p) {
+  if (p.id === 'page-home') {
+    p.style.display = 'block';
+  } else {
+    p.style.display = 'none';
+  }
+});
 loadImages();
 </script>
 
