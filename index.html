@@ -542,14 +542,14 @@ footer {
 <body>
 
 <nav id="main-nav">
-  <a class="nav-name" onclick="showPage('home')">Trần Thị Tiên</a>
+  <a class="nav-name" onclick="goHome(null)">Trần Thị Tiên</a>
   <div class="nav-links">
-    <a onclick="scrollTo_('#about')">Về tôi</a>
-    <a onclick="scrollTo_('#beliefs')">Quan điểm</a>
-    <a onclick="scrollTo_('#impact')">Dấu ấn</a>
-    <a onclick="scrollTo_('#insights')">Bài viết</a>
-    <a onclick="scrollTo_('#beyond')">Ngoài công việc</a>
-    <a onclick="scrollTo_('#connect')">Kết nối</a>
+    <a onclick="goHome('#about')">Về tôi</a>
+    <a onclick="goHome('#beliefs')">Quan điểm</a>
+    <a onclick="goHome('#impact')">Dấu ấn</a>
+    <a onclick="goHome('#insights')">Bài viết</a>
+    <a onclick="goHome('#beyond')">Ngoài công việc</a>
+    <a onclick="goHome('#connect')">Kết nối</a>
   </div>
 </nav>
 
@@ -651,7 +651,7 @@ footer {
       <div class="belief-item">
         <span class="belief-num">06</span>
         <div class="belief-text">"Học không có điểm kết thúc — chỉ có người ngừng học và người tiếp tục."</div>
-        <p class="belief-note">EMBA ở tuổi 40 không phải về bằng cấp. Đó là về việc giữ cho tư duy không đóng lại khi kinh nghiệm đủ nhiều để khiến bạn nghĩ mình đã biết đủ.</p>
+        <p class="belief-note">Học lại sau nhiều năm trong nghề không phải về bằng cấp. Đó là về việc giữ cho tư duy không đóng lại khi kinh nghiệm đủ nhiều để khiến bạn nghĩ mình đã biết đủ.</p>
       </div>
     </div>
   </div>
@@ -752,11 +752,7 @@ footer {
           <div class="pi-title">Điều tôi muốn nói với bản thân 10 năm trước khi lần đầu quản lý người khác</div>
           <div class="pi-meta">24 tháng 4, 2025 · 6 phút</div>
         </div>
-        <div class="post-item" onclick="showArticle('a3')">
-          <div class="pi-cat">Tư duy & Kỷ luật</div>
-          <div class="pi-title">EMBA ở tuổi 40: Tại sao tôi chọn học lại khi đang ở đỉnh sự nghiệp</div>
-          <div class="pi-meta">5 tháng 4, 2025 · 7 phút</div>
-        </div>
+
         <div class="post-item" onclick="showArticle('a4')">
           <div class="pi-cat">Chiến lược</div>
           <div class="pi-title">Thị trường bảo hiểm Việt Nam sau khủng hoảng niềm tin: Xây lại từ đâu?</div>
@@ -891,7 +887,7 @@ footer {
 
 <div id="page-a1" class="page">
 <div class="article-container">
-  <button class="back-btn" onclick="showPage('home'); scrollTo_('#insights')">← Quay lại bài viết</button>
+  <button class="back-btn" onclick="goHome('#insights')">← Quay lại bài viết</button>
   <div style="height:2.5rem"></div>
   <span class="art-cat">Bancassurance & Chiến lược</span>
   <h1 class="art-title">Bancassurance 2025: Khi ngân hàng không còn chỉ là kênh bán hàng</h1>
@@ -932,7 +928,7 @@ footer {
 
 <div id="page-a2" class="page">
 <div class="article-container">
-  <button class="back-btn" onclick="showPage('home'); scrollTo_('#insights')">← Quay lại bài viết</button>
+  <button class="back-btn" onclick="goHome('#insights')">← Quay lại bài viết</button>
   <div style="height:2.5rem"></div>
   <span class="art-cat">Lãnh đạo & Sự nghiệp</span>
   <h1 class="art-title">Điều tôi muốn nói với bản thân 10 năm trước khi lần đầu quản lý người khác</h1>
@@ -972,43 +968,9 @@ footer {
 </footer>
 </div>
 
-<div id="page-a3" class="page">
-<div class="article-container">
-  <button class="back-btn" onclick="showPage('home'); scrollTo_('#insights')">← Quay lại bài viết</button>
-  <div style="height:2.5rem"></div>
-  <span class="art-cat">Tư duy & Kỷ luật</span>
-  <h1 class="art-title">EMBA ở tuổi 40: Tại sao tôi chọn học lại khi đang ở đỉnh sự nghiệp</h1>
-  <div class="art-meta">Trần Thị Tiên · 5 tháng 4, 2025 · 7 phút đọc</div>
-  <img class="art-cover" data-src="lifestyle" alt="EMBA">
-  <div class="art-body">
-    <p>Nhiều người hỏi tôi: chị đang làm Head of Bancassurance, quản lý đội ngũ lớn, kết quả tốt — tại sao lại đi học EMBA? Câu trả lời của tôi luôn là: chính xác vì tôi đang ở đỉnh — đó là lý do tôi cần học.</p>
-
-    <h2>Khoảnh khắc nhận ra giới hạn của mình</h2>
-    <p>Tôi đang ngồi trong một cuộc họp chiến lược cấp cao. Các đồng nghiệp từ Singapore, Hong Kong, Thái Lan đang thảo luận về mô hình tăng trưởng dài hạn. Họ dùng những framework chiến lược, những khái niệm mà tôi hiểu về mặt trực giác nhưng không có ngôn ngữ để diễn đạt chính xác.</p>
-    <p>Tôi có kinh nghiệm. Tôi có kết quả. Nhưng tôi thiếu công cụ tư duy để đưa những kinh nghiệm đó lên tầm chiến lược. Tôi về nhà tối hôm đó và tìm hiểu về EMBA.</p>
-
-    <blockquote>Học ở tuổi 40 khác hoàn toàn với học ở tuổi 22. Ở tuổi 22, bạn học để có kiến thức. Ở tuổi 40, bạn học để hiểu sâu hơn những gì bạn đã biết — và để đặt câu hỏi đúng hơn.</blockquote>
-
-    <h2>EMBA không phải bằng cấp — đó là nâng cấp hệ điều hành tư duy</h2>
-    <p>EMBA không dạy bạn từ đầu. Nó lấy kinh nghiệm thực tế của bạn và đặt vào framework để bạn hiểu sâu hơn tại sao nó hoạt động (hoặc không). Điều giá trị nhất không phải nội dung bài giảng — mà là cuộc trò chuyện sau giờ học với người đồng học đang làm CFO, đang xây startup, đang trải qua M&A phức tạp.</p>
-
-    <h2>Nếu bạn đang cân nhắc EMBA</h2>
-    <p>Đừng chờ đến khi có đủ thời gian — bạn sẽ không bao giờ có đủ. Học khi bạn đang bận nhất, đang va chạm nhiều nhất, đang có nhiều câu hỏi nhất. Đó là khi việc học có giá trị thật sự.</p>
-    <div class="art-tags">
-      <span class="art-tag">EMBA</span><span class="art-tag">Học tập</span><span class="art-tag">Phát triển</span><span class="art-tag">Chiến lược</span>
-    </div>
-  </div>
-</div>
-<footer>
-  <div class="f-logo">Trần Thị Tiên</div>
-  <div class="f-copy">© 2025</div>
-  <div class="f-links"><a class="f-link" href="https://www.linkedin.com/in/tientranbk" target="_blank">LinkedIn</a></div>
-</footer>
-</div>
-
 <div id="page-a4" class="page">
 <div class="article-container">
-  <button class="back-btn" onclick="showPage('home'); scrollTo_('#insights')">← Quay lại bài viết</button>
+  <button class="back-btn" onclick="goHome('#insights')">← Quay lại bài viết</button>
   <div style="height:2.5rem"></div>
   <span class="art-cat">Bancassurance & Chiến lược</span>
   <h1 class="art-title">Thị trường bảo hiểm Việt Nam sau khủng hoảng niềm tin: Xây lại từ đâu?</h1>
@@ -1044,7 +1006,7 @@ footer {
 
 <div id="page-a5" class="page">
 <div class="article-container">
-  <button class="back-btn" onclick="showPage('home'); scrollTo_('#insights')">← Quay lại bài viết</button>
+  <button class="back-btn" onclick="goHome('#insights')">← Quay lại bài viết</button>
   <div style="height:2.5rem"></div>
   <span class="art-cat">Tư duy & Kỷ luật</span>
   <h1 class="art-title">5 giờ sáng và sự rõ ràng: tại sao tôi chạy bộ trước khi bắt đầu làm việc</h1>
@@ -1134,6 +1096,34 @@ function scrollTo_(selector) {
   }, 100);
 }
 
+function goHome(selector) {
+  // 1. Show home page
+  document.querySelectorAll('.page').forEach(function(p) {
+    p.classList.remove('active');
+    p.style.display = 'none';
+  });
+  var home = document.getElementById('page-home');
+  home.style.display = 'block';
+  home.classList.add('active');
+
+  // 2. If no selector, scroll to top
+  if (!selector) {
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    return;
+  }
+
+  // 3. Scroll to section after paint
+  requestAnimationFrame(function() {
+    setTimeout(function() {
+      var el = document.querySelector(selector);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 80);
+  });
+}
+
 function handleSubmit(btn) {
   btn.textContent = 'Đã gửi — cảm ơn bạn!';
   btn.style.background = '#2d6a4f';
@@ -1159,7 +1149,7 @@ loadImages();
 
 <div id="page-a6" class="page">
 <div class="article-container">
-  <button class="back-btn" onclick="showPage('home'); scrollTo_('#insights')">← Quay lại bài viết</button>
+  <button class="back-btn" onclick="goHome('#insights')">← Quay lại bài viết</button>
   <div style="height:2.5rem"></div>
   <span class="art-cat">Bancassurance & Chiến lược</span>
   <h1 class="art-title">Vì sao tăng trưởng nhanh không còn là lợi thế trong bancassurance</h1>
@@ -1223,7 +1213,7 @@ loadImages();
 <div id="page-a7" class="page">
 <div style="max-width:960px;margin:0 auto;padding:3.5rem 3rem 6rem;">
 
-  <button class="back-btn" onclick="showPage('home'); scrollTo_('#insights')">← Quay lại bài viết</button>
+  <button class="back-btn" onclick="goHome('#insights')">← Quay lại bài viết</button>
   <div style="height:3rem"></div>
 
   <!-- SPLIT: Image left, title + meta right -->
