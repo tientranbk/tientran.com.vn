@@ -218,46 +218,85 @@ hr.thin { border: none; border-top: 0.5px solid var(--border); margin: 4rem 0; }
 }
 
 /* ── IMPACT ── */
-#impact { background: var(--cream); }
-.impact-intro {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 6rem; align-items: end; margin-bottom: 5rem;
-  padding-bottom: 3.5rem; border-bottom: 0.5px solid var(--border);
-}
-.impact-intro h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); }
-.impact-intro p { font-size: 1rem; color: var(--mid); line-height: 1.9; font-weight: 300; }
-.impact-cards {
-  display: grid; grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-}
-.impact-card {
-  background: var(--white);
-  border: 0.5px solid var(--border);
-  padding: 2rem 1.8rem;
-  position: relative; overflow: hidden;
-}
-.impact-card::before {
-  content: ''; position: absolute; top: 0; left: 0;
-  width: 2px; height: 100%; background: var(--red);
-}
-.ic-num {
-  font-family: 'EB Garamond', serif;
-  font-size: 2.8rem; font-weight: 400; color: var(--red);
-  line-height: 1; margin-bottom: 0.6rem; display: block;
-}
-.ic-label { font-size: 12px; color: var(--soft); line-height: 1.6; font-weight: 300; }
+#impact { background: var(--white); }
 
-.impact-note {
-  margin-top: 3rem; padding: 2.4rem;
-  background: var(--ink); color: rgba(255,255,255,0.7);
-  font-family: 'EB Garamond', serif; font-size: 1.3rem;
-  font-style: italic; line-height: 1.8;
+.impact-header {
+  margin-bottom: 5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 0.5px solid var(--border);
 }
-.impact-note cite {
-  display: block; margin-top: 1rem;
-  font-size: 11px; font-style: normal; letter-spacing: 0.1em;
-  text-transform: uppercase; color: rgba(255,255,255,0.3);
-  font-family: 'Lato', sans-serif;
+.impact-header h2 {
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
+  font-weight: 500; margin-top: 0.3rem; margin-bottom: 1.2rem;
+}
+.impact-header p {
+  font-size: 1rem; color: var(--mid);
+  line-height: 1.9; font-weight: 400;
+  max-width: 580px;
+}
+.impact-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 6rem;
+  align-items: start;
+}
+.impact-hero-metric {
+  padding-right: 4rem;
+  border-right: 0.5px solid var(--border);
+  padding-top: 0.5rem;
+}
+.ihm-number {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(5rem, 9vw, 7.5rem);
+  font-weight: 400;
+  color: var(--red);
+  line-height: 0.9;
+  display: block;
+  margin-bottom: 1.6rem;
+  letter-spacing: -0.02em;
+}
+.ihm-label {
+  font-size: 1.05rem;
+  color: var(--mid);
+  line-height: 1.8;
+  font-weight: 400;
+}
+.impact-stack {
+  display: flex;
+  flex-direction: column;
+}
+.impact-stack-item {
+  padding: 2rem 0;
+  border-bottom: 0.5px solid var(--border);
+}
+.impact-stack-item:first-child { padding-top: 0.5rem; }
+.impact-stack-item:last-child { border-bottom: none; }
+.ism-number {
+  font-family: 'EB Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  font-weight: 400;
+  color: var(--red);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+.ism-label {
+  font-size: 0.95rem;
+  color: var(--mid);
+  line-height: 1.7;
+  font-weight: 400;
+}
+.impact-closing {
+  margin-top: 4.5rem;
+  padding-top: 2.5rem;
+  border-top: 0.5px solid var(--border);
+  font-family: 'EB Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--soft);
+  line-height: 1.85;
+  max-width: 580px;
 }
 
 /* ── CURRENT FOCUS ── */
@@ -525,6 +564,10 @@ footer {
   nav { padding: 1.2rem 1.5rem; }
   .nav-links { display: none; }
   #hero { grid-template-columns: 1fr; min-height: auto; }
+  .impact-metrics { grid-template-columns: 1fr; gap: 3.5rem; }
+  .impact-hero-metric { border-right: none; padding-right: 0;
+    border-bottom: 0.5px solid var(--border); padding-bottom: 3rem; }
+  .ihm-number { font-size: 5rem; }
   .hero-left { padding: 8rem 1.5rem 3rem; border-right: none; }
   .hero-right { height: 280px; }
   .about-grid, .beliefs-grid, .impact-intro, .focus-grid,
