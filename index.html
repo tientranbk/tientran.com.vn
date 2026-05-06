@@ -499,7 +499,7 @@ footer {
 /* ── ARTICLE SYSTEM ── */
 .page { display: none; }
 .page.active { display: block; padding-top: 64px; }
-#page-home { display: block; }
+/* page-home controlled by JS */
 
 .article-container { max-width: 700px; margin: 0 auto; padding: 4rem 2rem 6rem; }
 .art-cat { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--red); margin-bottom: 1rem; display: block; }
@@ -597,7 +597,7 @@ footer {
 </nav>
 
 <!-- ═══ HOME PAGE ═══ -->
-<div id="page-home" class="page active">
+<div id="page-home" class="page">
 
 <!-- HERO -->
 <section id="hero">
@@ -1259,17 +1259,18 @@ function handleSubmit(btn) {
 }
 
 // ── INIT ──
-// Read hash from URL to support direct links (e.g. tientran.com.vn/#a8)
-(function() {
+function initPage() {
   var hash = window.location.hash.replace('#', '');
   var validPages = ['home','a1','a2','a4','a5','a6','a7','a8'];
   var startPage = (hash && validPages.indexOf(hash) !== -1) ? hash : 'home';
 
+  // Hide all pages
   document.querySelectorAll('.page').forEach(function(p) {
     p.style.display = 'none';
     p.classList.remove('active');
   });
 
+  // Show correct page
   var startEl = document.getElementById('page-' + startPage);
   if (startEl) {
     startEl.style.display = 'block';
@@ -1278,8 +1279,21 @@ function handleSubmit(btn) {
     var home = document.getElementById('page-home');
     if (home) { home.style.display = 'block'; home.classList.add('active'); }
   }
-})();
-loadImages();
+
+  // Scroll to top
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+
+  loadImages();
+}
+
+// Run after full page load to ensure all elements exist
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initPage);
+} else {
+  initPage();
+}
 </script>
 
 <div id="page-a6" class="page">
