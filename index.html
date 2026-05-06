@@ -1188,12 +1188,19 @@ function showPage(id) {
   t.style.display = 'block';
   t.classList.add('active');
 
-  // 3. Force scroll to top — multiple methods for cross-browser reliability
+  // 3. Force scroll to top
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
   window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
 
-  // 4. Load images after paint
+  // 4. Update URL hash (enables shareable links)
+  if (id === 'home') {
+    history.pushState(null, '', window.location.pathname);
+  } else {
+    history.pushState(null, '', '#' + id);
+  }
+
+  // 5. Load images after paint
   requestAnimationFrame(function() {
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
@@ -1252,14 +1259,26 @@ function handleSubmit(btn) {
 }
 
 // ── INIT ──
-// Set all pages hidden except home via inline style (matches JS approach)
-document.querySelectorAll('.page').forEach(function(p) {
-  if (p.id === 'page-home') {
-    p.style.display = 'block';
-  } else {
+// Read hash from URL to support direct links (e.g. tientran.com.vn/#a8)
+(function() {
+  var hash = window.location.hash.replace('#', '');
+  var validPages = ['home','a1','a2','a4','a5','a6','a7','a8'];
+  var startPage = (hash && validPages.indexOf(hash) !== -1) ? hash : 'home';
+
+  document.querySelectorAll('.page').forEach(function(p) {
     p.style.display = 'none';
+    p.classList.remove('active');
+  });
+
+  var startEl = document.getElementById('page-' + startPage);
+  if (startEl) {
+    startEl.style.display = 'block';
+    startEl.classList.add('active');
+  } else {
+    var home = document.getElementById('page-home');
+    if (home) { home.style.display = 'block'; home.classList.add('active'); }
   }
-});
+})();
 loadImages();
 </script>
 
